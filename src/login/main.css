@@ -1,0 +1,26 @@
+.kcHtmlClass {
+    background: url("https://eliatra.com/_next/static/media/logo.56850517.png") no-repeat left top;
+    background-size: 150px;
+}
+
+.login-pf body {
+    background-image: url("https://eliatra.com/_next/static/media/EliatraBackground.ae12357b.svg") ;
+}
+
+.pf-c-button.pf-m-primary {
+    background-color: #651fff;
+}
+
+.pf-c-button.pf-m-primary:disabled {
+    background-color: lightgray;
+}
+
+
+.card-pf {
+    border-color: #651fff;
+}
+
+.kcHeaderWrapperClass {
+    content-visibility: hidden;
+    background: url("./meod.svg") no-repeat center;
+}
