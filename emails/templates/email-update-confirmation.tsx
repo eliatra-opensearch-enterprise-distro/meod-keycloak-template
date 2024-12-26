@@ -51,5 +51,5 @@ export const getTemplate: GetTemplate = async (props) => {
 };
 
 export const getSubject: GetSubject = async (_props) => {
-  return "Verify new email";
+  return "Confirm your new MEOD email address";
 };

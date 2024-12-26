@@ -46,5 +46,5 @@ export const getTemplate: GetTemplate = async (props) => {
 };
 
 export const getSubject: GetSubject = async (_props) => {
-  return "Reset password";
+  return "Confirm password reset for MEOD";
 };
