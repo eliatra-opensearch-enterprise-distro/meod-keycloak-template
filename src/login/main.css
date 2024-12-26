@@ -1,10 +1,14 @@
 .kcHtmlClass {
-    background: url("https://eliatra.com/_next/static/media/logo.56850517.png") no-repeat left top;
-    background-size: 150px;
+    border-top-width: 20px;
+    border-top-style: solid;
+    border-top-color: #651fff;
+    background: url("https://raw.githubusercontent.com/eliatra-opensearch-enterprise-distro/meod-assets/refs/heads/main/img/Eliatra_logo.svg") no-repeat;
+    background-size: 100px;
+    background-position: left 20px top 20px;
 }
 
 .login-pf body {
-    background-image: url("https://eliatra.com/_next/static/media/EliatraBackground.ae12357b.svg") ;
+    background-image: url("https://raw.githubusercontent.com/eliatra-opensearch-enterprise-distro/meod-assets/refs/heads/main/img/Eliatra_background.svg") ;
 }
 
 .pf-c-button.pf-m-primary {
@@ -22,5 +26,5 @@
 
 .kcHeaderWrapperClass {
     content-visibility: hidden;
-    background: url("./meod.svg") no-repeat center;
+    background: url("https://raw.githubusercontent.com/eliatra-opensearch-enterprise-distro/meod-assets/refs/heads/main/img/meod_logo_light.svg") no-repeat center;
 }

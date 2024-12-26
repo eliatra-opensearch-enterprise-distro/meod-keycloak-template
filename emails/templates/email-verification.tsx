@@ -1,5 +1,5 @@
 import { Text, render } from "jsx-email";
-import { EmailLayout } from "../layout";
+import { EmailLayout, EmailProps } from "../eliatra-layout";
 import {
   createVariablesHelper,
   GetSubject,
@@ -8,13 +8,6 @@ import {
 } from "keycloakify-emails";
 
 interface TemplateProps extends Omit<GetTemplateProps, "plainText"> {}
-
-const paragraph = {
-  color: "#777",
-  fontSize: "16px",
-  lineHeight: "24px",
-  textAlign: "left" as const,
-};
 
 export const previewProps: TemplateProps = {
   locale: "en",
@@ -26,21 +19,26 @@ export const templateName = "Email Verification";
 const { exp } = createVariablesHelper("email-verification.ftl");
 
 export const Template = ({ locale }: TemplateProps) => (
-  <EmailLayout preview={`Here is a preview`} locale={locale}>
-    <Text style={paragraph}>
-      <p>
-        Someone has created a {exp("user.firstName")} account with this email address. If
-        this was you, click the link below to verify your email address
-      </p>
-      <p>
-        <a href={exp("link")}>Link to e-mail address verification</a>
-      </p>
-      <p>
-        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-      </p>
-      <p>If you didn't create this account, just ignore this message.</p>
-    </Text>
-  </EmailLayout>
+    <EmailLayout
+        userFirstname={exp("user.firstName")}
+        userLastname={exp("user.lastName")}
+        locale={locale}
+        buttonText={"Link to e-mail address verification"}
+        buttonLink={exp("link")}
+        emailAddress={exp("user.email")}
+        preview={""}>
+      <Text>
+        <p>
+          Someone has created a {exp("user.firstName")} account with this email address. If
+          this was you, click the link below to verify your email address
+        </p>
+        <p>
+          The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+          If the link is already expired just try to login and a new verification link will be sent.
+        </p>
+        <p>If you didn't create this account, just ignore this message.</p>
+      </Text>
+    </EmailLayout>
 );
 
 export const getTemplate: GetTemplate = async (props) => {
