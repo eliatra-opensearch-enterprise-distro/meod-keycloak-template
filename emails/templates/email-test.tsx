@@ -1,5 +1,5 @@
-import { render, Text, Img, Container } from "jsx-email";
-import { EmailLayout } from "../layout";
+import { render, Text, } from "jsx-email";
+import { EmailLayout} from "../eliatra-layout";
 import {
   createVariablesHelper,
   GetSubject,
@@ -8,13 +8,6 @@ import {
 } from "keycloakify-emails";
 
 interface TemplateProps extends Omit<GetTemplateProps, "plainText"> {}
-
-const paragraph = {
-  color: "#777",
-  fontSize: "16px",
-  lineHeight: "24px",
-  textAlign: "left" as const,
-};
 
 export const previewProps: TemplateProps = {
   locale: "en",
@@ -25,15 +18,19 @@ export const templateName = "Email Test";
 
 const { exp } = createVariablesHelper("email-test.ftl");
 
-const baseUrl = import.meta.isJsxEmailPreview ? "/assets" : "${url.resourcesUrl}";
-
 export const Template = ({ locale }: TemplateProps) => (
-  <EmailLayout preview={"Here is a preview"} locale={locale}>
-    <Container>
-      <Img src={`${baseUrl}/kc-logo.png`} alt="KC Logo" width="83" height="75" />
-    </Container>
-    <Text style={paragraph}>This is a test message from {exp("realmName")}</Text>
-  </EmailLayout>
+    <EmailLayout
+        userFirstname={exp("user.firstName")}
+        userLastname={exp("user.lastName")}
+        locale={locale}
+        buttonText={exp('realmName')}
+        buttonLink={""}
+        emailAddress={exp("user.email")}
+        preview={"This is a test message from {exp('realmName')"}>
+        <p>
+          This is a test message from {exp("realmName")}
+        </p>
+    </EmailLayout>
 );
 
 export const getTemplate: GetTemplate = async (props) => {

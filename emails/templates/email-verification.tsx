@@ -1,5 +1,5 @@
 import { Text, render } from "jsx-email";
-import { EmailLayout, EmailProps } from "../eliatra-layout";
+import { EmailLayout} from "../eliatra-layout";
 import {
   createVariablesHelper,
   GetSubject,
@@ -23,11 +23,10 @@ export const Template = ({ locale }: TemplateProps) => (
         userFirstname={exp("user.firstName")}
         userLastname={exp("user.lastName")}
         locale={locale}
-        buttonText={"Link to e-mail address verification"}
+        buttonText={"Verify e-mail address"}
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
-        preview={""}>
-      <Text>
+        preview={"Verify your email address"}>
         <p>
           Someone has created a {exp("user.firstName")} account with this email address. If
           this was you, click the link below to verify your email address
@@ -37,7 +36,6 @@ export const Template = ({ locale }: TemplateProps) => (
           If the link is already expired just try to login and a new verification link will be sent.
         </p>
         <p>If you didn't create this account, just ignore this message.</p>
-      </Text>
     </EmailLayout>
 );
 

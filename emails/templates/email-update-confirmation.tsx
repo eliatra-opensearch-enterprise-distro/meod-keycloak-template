@@ -1,5 +1,5 @@
 import { Text, render } from "jsx-email";
-import { EmailLayout } from "../layout";
+import { EmailLayout} from "../eliatra-layout";
 import {
   GetSubject,
   GetTemplate,
@@ -25,23 +25,25 @@ export const templateName = "Email Update Confirmation";
 const { exp } = createVariablesHelper("email-update-confirmation.ftl");
 
 export const Template = ({ locale }: TemplateProps) => (
-  <EmailLayout preview={`Here is a preview`} locale={locale}>
-    <Text style={paragraph}>
-      <p>
-        To update your {exp("realmName")} account with email address {exp("newEmail")},
-        click the link below
-      </p>
-      <p>
-        <a href={exp("link")}>{exp("link")}</a>
-      </p>
-      <p>
-        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-      </p>
-      <p>
-        If you don't want to proceed with this modification, just ignore this message.
-      </p>
-    </Text>
-  </EmailLayout>
+    <EmailLayout
+        userFirstname={exp("user.firstName")}
+        userLastname={exp("user.lastName")}
+        locale={locale}
+        buttonText={exp("link")}
+        buttonLink={exp("link")}
+        emailAddress={exp("user.email")}
+        preview={"Confirm email address update"}>
+        <p>
+          To update your {exp("realmName")} account with email address {exp("newEmail")},
+          click the link below
+        </p>
+        <p>
+          This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        </p>
+        <p>
+          If you don't want to proceed with this modification, just ignore this message.
+        </p>
+    </EmailLayout>
 );
 
 export const getTemplate: GetTemplate = async (props) => {

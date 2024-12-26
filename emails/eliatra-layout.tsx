@@ -1,7 +1,7 @@
 import { Body, Button, Container, Head, Hr, Html, Img, Preview, Section, Text } from 'jsx-email';
 import {PropsWithChildren, ReactNode} from "react";
 
-export interface EmailProps {
+interface EmailProps {
     userFirstname: string;
     userLastname: string;
     locale: string;
@@ -77,13 +77,14 @@ export const EmailLayout = ({
         <Body style={main}>
             <Container style={container}>
                 <Img src={`${baseUrl}meod_logo_light.svg`} width="170" height="50" alt="Eliatra" style={logo} />
-                <Text style={paragraph}>Hi {userFirstname} {userLastname},</Text>
                 <Text style={paragraph}>
+                    Hi {userFirstname} {userLastname},
+
                     {children}
                 </Text>
                 <Section style={btnContainer}>
                     <Button
-                        width={106}
+                        width={250}
                         height={44}
                         backgroundColor="#651fff"
                         borderRadius={3}
