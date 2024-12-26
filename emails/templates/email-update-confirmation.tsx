@@ -8,13 +8,6 @@ import {
 } from "keycloakify-emails";
 interface TemplateProps extends Omit<GetTemplateProps, "plainText"> {}
 
-const paragraph = {
-  color: "#777",
-  fontSize: "16px",
-  lineHeight: "24px",
-  textAlign: "left" as const,
-};
-
 export const previewProps: TemplateProps = {
   locale: "en",
   themeName: "vanilla",
@@ -29,20 +22,17 @@ export const Template = ({ locale }: TemplateProps) => (
         userFirstname={exp("user.firstName")}
         userLastname={exp("user.lastName")}
         locale={locale}
-        buttonText={exp("link")}
+        buttonText={"Confirm email address update"}
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"Confirm email address update"}>
-        <p>
-          To update your {exp("realmName")} account with email address {exp("newEmail")},
-          click the link below
-        </p>
-        <p>
-          This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-        </p>
-        <p>
-          If you don't want to proceed with this modification, just ignore this message.
-        </p>
+
+        To update your MEOD account with email address {exp("newEmail")},
+        click the link below
+        <br/><br/>
+        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        <br/><br/>
+        If you don't want to proceed with this modification, just ignore this message.
     </EmailLayout>
 );
 

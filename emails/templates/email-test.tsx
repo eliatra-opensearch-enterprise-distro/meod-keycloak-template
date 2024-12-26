@@ -20,16 +20,16 @@ const { exp } = createVariablesHelper("email-test.ftl");
 
 export const Template = ({ locale }: TemplateProps) => (
     <EmailLayout
-        userFirstname={exp("user.firstName")}
-        userLastname={exp("user.lastName")}
+        userFirstname={"Keycloak"}
+        userLastname={"Admin"}
         locale={locale}
         buttonText={exp('realmName')}
         buttonLink={""}
         emailAddress={exp("user.email")}
         preview={"This is a test message from {exp('realmName')"}>
-        <p>
-          This is a test message from {exp("realmName")}
-        </p>
+
+        This is a test message from {exp("realmName")}
+
     </EmailLayout>
 );
 

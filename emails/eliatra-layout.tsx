@@ -79,7 +79,7 @@ export const EmailLayout = ({
                 <Img src={`${baseUrl}meod_logo_light.svg`} width="170" height="50" alt="Eliatra" style={logo} />
                 <Text style={paragraph}>
                     Hi {userFirstname} {userLastname},
-
+                    <br/><br/>
                     {children}
                 </Text>
                 <Section style={btnContainer}>

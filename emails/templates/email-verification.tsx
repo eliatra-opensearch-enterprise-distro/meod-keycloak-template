@@ -27,15 +27,14 @@ export const Template = ({ locale }: TemplateProps) => (
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"Verify your email address"}>
-        <p>
-          Someone has created a {exp("user.firstName")} account with this email address. If
-          this was you, click the link below to verify your email address
-        </p>
-        <p>
-          The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-          If the link is already expired just try to login and a new verification link will be sent.
-        </p>
-        <p>If you didn't create this account, just ignore this message.</p>
+
+        Someone has created a {exp("user.firstName")} account with this email address. If
+        this was you, click the link below to verify your email address
+        <br/><br/>
+        The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        If the link is already expired just try to login and a new verification link will be sent.
+        <br/><br/>
+        If you didn't create this account, just ignore this message.
     </EmailLayout>
 );
 

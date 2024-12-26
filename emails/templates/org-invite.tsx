@@ -27,14 +27,13 @@ export const Template = ({ locale }: TemplateProps) => (
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"You were invited to join an organization"}>
-        <p>
-          You were invited to join the {exp("organization.name")} organization. Click the
-          link below to join.{" "}
-        </p>
-        <p>
-          This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-        </p>
-        <p>If you don't want to join the organization, just ignore this message.</p>
+
+        You were invited to join the {exp("organization.name")} organization. Click the
+        link below to join.{" "}
+        <br/><br/>
+        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        <br/><br/>
+        If you don't want to join the organization, just ignore this message.
     </EmailLayout>
 );
 

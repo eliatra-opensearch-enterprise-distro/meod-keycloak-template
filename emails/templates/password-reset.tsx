@@ -27,17 +27,15 @@ export const Template = ({ locale }: TemplateProps) => (
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"Reset credentials"}>
-        <p>
-          Someone just requested to change your {exp("realmName")} account's credentials. If
-          this was you, click on the link below to reset them.
-        </p>
-        <p>
-          This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-        </p>
-        <p>
-          If you don't want to reset your credentials, just ignore this message and nothing
-          will be changed.
-        </p>
+
+        Someone just requested to change your {exp("realmName")} account's credentials. If
+        this was you, click on the link below to reset them.
+        <br/><br/>
+        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        <br/><br/>
+        If you don't want to reset your credentials, just ignore this message and nothing
+        will be changed.
+
     </EmailLayout>
 );
 
