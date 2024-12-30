@@ -1,49 +1,47 @@
 import { Text, render } from "jsx-email";
 import { EmailLayout} from "../eliatra-layout";
 import {
-  createVariablesHelper,
-  GetSubject,
-  GetTemplate,
-  GetTemplateProps,
+    createVariablesHelper,
+    GetSubject,
+    GetTemplate,
+    GetTemplateProps,
 } from "keycloakify-emails";
 
 interface TemplateProps extends Omit<GetTemplateProps, "plainText"> {}
 
 export const previewProps: TemplateProps = {
-  locale: "en",
-  themeName: "vanilla",
+    locale: "en",
+    themeName: "vanilla",
 };
 
-export const templateName = "Password Reset";
+export const templateName = "Execute Actions";
 
-const { exp } = createVariablesHelper("password-reset.ftl");
+const { exp } = createVariablesHelper("executeActions.ftl");
 
 export const Template = ({ locale }: TemplateProps) => (
     <EmailLayout
         userFirstname={exp("user.firstName")}
         userLastname={exp("user.lastName")}
         locale={locale}
-        buttonText={"Reset credentials"}
+        buttonText={"Update or set your MEOD account password"}
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
-        preview={"Reset credentials"}>
+        preview={"Update or set your MEOD account password"}>
 
-        Someone just requested to change your {exp("realmName")} account's credentials. If
-        this was you, click on the link below to reset them.
+        Someone has requested to update or set your MEOD account password. If
+        this was you, click the link below.
         <br/><br/>
-        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.<br/>
+        The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.<br/>
         If the link is already expired, just try to login and a new verification link will be sent.
         <br/><br/>
-        If you don't want to reset your credentials, just ignore this message and nothing
-        will be changed.
-
+        If you didn't create or request this change, just ignore this message.
     </EmailLayout>
 );
 
 export const getTemplate: GetTemplate = async (props) => {
-  return await render(<Template {...props} />, { plainText: props.plainText });
+    return await render(<Template {...props} />, { plainText: props.plainText });
 };
 
 export const getSubject: GetSubject = async (_props) => {
-  return "Confirm password reset for MEOD";
+    return "Update your MEOD account";
 };

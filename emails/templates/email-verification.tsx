@@ -28,11 +28,11 @@ export const Template = ({ locale }: TemplateProps) => (
         emailAddress={exp("user.email")}
         preview={"Verify your email address"}>
 
-        Someone has created a {exp("user.firstName")} account with this email address. If
-        this was you, click the link below to verify your email address
+        Someone has created a MEOD account with this email address ({exp("user.email")}). If
+        this was you, click the link below to verify your email address.
         <br/><br/>
-        The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
-        If the link is already expired just try to login and a new verification link will be sent.
+        The link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.<br/>
+        If the link is already expired, just try to login and a new verification link will be sent.
         <br/><br/>
         If you didn't create this account, just ignore this message.
     </EmailLayout>

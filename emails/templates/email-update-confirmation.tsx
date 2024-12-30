@@ -27,10 +27,11 @@ export const Template = ({ locale }: TemplateProps) => (
         emailAddress={exp("user.email")}
         preview={"Confirm email address update"}>
 
-        To update your MEOD account with email address {exp("newEmail")},
-        click the link below
+        To change the email address to {exp("newEmail")} for your MEOD account,
+        click the link below.
         <br/><br/>
-        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.
+        This link will expire within {exp("linkExpirationFormatter(linkExpiration)")}.<br/>
+        If the link is already expired, just try to login and a new verification link will be sent.
         <br/><br/>
         If you don't want to proceed with this modification, just ignore this message.
     </EmailLayout>
