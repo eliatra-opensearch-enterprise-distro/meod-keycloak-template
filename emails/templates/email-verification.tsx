@@ -23,7 +23,7 @@ export const Template = ({ locale }: TemplateProps) => (
         userFirstname={exp("user.firstName")}
         userLastname={exp("user.lastName")}
         locale={locale}
-        buttonText={"Verify e-mail address"}
+        buttonText={"Verify email address"}
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"Verify your email address"}>

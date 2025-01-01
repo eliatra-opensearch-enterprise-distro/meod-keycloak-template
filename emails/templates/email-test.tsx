@@ -38,5 +38,5 @@ export const getTemplate: GetTemplate = async (props) => {
 };
 
 export const getSubject: GetSubject = async (_props) => {
-  return "[KEYCLOAK] - SMTP test message";
+  return "[KEYCLOAK] - SMTP EMail test message";
 };

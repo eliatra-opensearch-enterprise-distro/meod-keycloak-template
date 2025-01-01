@@ -23,7 +23,7 @@ export const Template = ({ locale }: TemplateProps) => (
         userFirstname={exp("user.firstName")}
         userLastname={exp("user.lastName")}
         locale={locale}
-        buttonText={"Update or set your MEOD account password"}
+        buttonText={"Update or set password"}
         buttonLink={exp("link")}
         emailAddress={exp("user.email")}
         preview={"Update or set your MEOD account password"}>
